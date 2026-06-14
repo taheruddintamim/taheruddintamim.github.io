@@ -4,11 +4,16 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Taher Uddin Tamim - A science student and creative designer bridging analytical thinking with creative expression.">
-    <meta name="keywords" content="Taher Uddin Tamim, Graphic Designer, Science Student, Portfolio, UI/UX, Design">
+    <meta name="description" content="Portfolio of Taher Uddin Tamim - A passionate science student and creative UI/UX designer bridging analytical thinking with stunning creative web design and development.">
+    <meta name="keywords" content="Taher Uddin Tamim, Graphic Designer, UI/UX Designer, Frontend Developer, Web Designer, Portfolio, Creative Design, Science Student, Taher Tamim">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Taher Uddin Tamim">
     <meta property="og:title" content="Taher Uddin Tamim | Where Science Meets Design">
-    <meta property="og:description" content="Portfolio of Taher Uddin Tamim - A science student and creative designer bridging analytical thinking with creative expression.">
+    <meta property="og:description" content="Portfolio of Taher Uddin Tamim - A passionate science student and creative UI/UX designer bridging analytical thinking with stunning creative web design.">
     <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Taher Uddin Tamim | Where Science Meets Design">
+    <meta name="twitter:description" content="Portfolio of Taher Uddin Tamim - Bridging analytical thinking with stunning creative web design.">
     <title>Taher Uddin Tamim | Where Science Meets Design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -576,7 +581,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow-y: auto;
+            overflow: hidden;
             clip-path: circle(0px at calc(100% - 50px) 45px);
             transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
@@ -591,9 +596,10 @@
             justify-content: center;
             width: 90%;
             max-width: 1200px;
-            gap: 4rem;
-            padding: 6rem 0;
+            gap: clamp(1rem, 4vh, 4rem);
+            padding: 2vh 0;
             margin: auto;
+            max-height: 100vh;
         }
 
         .menu-items {
@@ -603,19 +609,19 @@
         }
 
         .menu-items li {
-            margin: 0.5rem 0;
+            margin: clamp(0.1rem, 1.2vh, 0.5rem) 0;
             overflow: hidden;
         }
 
         .menu-items a {
             font-family: 'Oxanium', sans-serif;
-            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-size: clamp(1.2rem, 4.5vh, 3rem);
             font-weight: 600;
             color: var(--gray-light);
             text-decoration: none;
             display: inline-block;
             transition: var(--transition);
-            padding: 0.5rem 0;
+            padding: clamp(0.1rem, 0.5vh, 0.5rem) 0;
         }
         
         .menu-items a:hover {
@@ -1876,8 +1882,8 @@
             .menu-container { 
                 flex-direction: column; 
                 justify-content: center;
-                gap: 1.5rem;
-                padding-top: 3rem;
+                gap: 1.5vh;
+                padding: 0;
                 height: 100%;
             }
             .menu-items { 
@@ -1887,8 +1893,8 @@
             .menu-image { 
                 display: block;
                 flex-basis: auto;
-                width: 180px;
-                height: 250px;
+                width: clamp(120px, 35vh, 180px);
+                height: clamp(150px, 35vh, 250px);
                 margin-top: 1rem;
                 flex-shrink: 0;
             }
