@@ -14,7 +14,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Taher Uddin Tamim | Where Science Meets Design">
     <meta name="twitter:description" content="Portfolio of Taher Uddin Tamim - Bridging analytical thinking with stunning creative design.">
-    <title>Taher Uddin Tamim </title>
+    <title>Taher Uddin Tamim | Where Science Meets Design</title>
     <link rel="canonical" href="https://taheruddintamim.github.io/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -193,10 +193,7 @@
             fill: var(--foreground);
             transition: var(--transition);
         }
-        .logo-dot-path {
-            stroke: var(--accent);
-            transition: var(--transition);
-        }
+
         
         footer {
             background: linear-gradient(to bottom, var(--background) 0%, var(--footer-end) 100%) !important;
@@ -218,7 +215,7 @@
         }
         
         /* Theme Toggle styles */
-        #theme-toggle {
+        #theme-toggle, #bgm-toggle {
             background: transparent;
             border: none;
             cursor: none;
@@ -230,13 +227,15 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            color: var(--foreground);
+            font-size: 1.2rem;
         }
         
-        #theme-toggle:hover {
+        #theme-toggle:hover, #bgm-toggle:hover {
             transform: scale(1.1);
             background: rgba(255, 255, 255, 0.1);
         }
-        body.light-theme #theme-toggle:hover {
+        body.light-theme #theme-toggle:hover, body.light-theme #bgm-toggle:hover {
             background: rgba(0, 0, 0, 0.05);
         }
         
@@ -316,16 +315,20 @@
 
         /* --- ADVANCED CURSOR SYSTEM --- */
         .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent);
+            width: 50px;
+            height: 50px;
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 255, 178, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 178, 0.2);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
             transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
             transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
+            mix-blend-mode: normal;
         }
 
         .cursor::before {
@@ -339,7 +342,7 @@
             background: conic-gradient(from 0deg, var(--accent-secondary), var(--accent-tertiary), var(--accent), var(--accent-secondary));
             border-radius: 50%;
             filter: blur(15px);
-            opacity: 0.6;
+            opacity: 0;
             animation: siriSpin 4s linear infinite;
             z-index: -1;
             transition: opacity 0.3s;
@@ -363,18 +366,18 @@
         }
 
         .cursor.hover {
-            width: 50px;
-            height: 50px;
-            background: rgba(10, 10, 10, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(0, 255, 178, 0.3);
-            box-shadow: 0 0 20px rgba(0, 255, 178, 0.2);
-            mix-blend-mode: normal;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 2px solid var(--accent);
+            box-shadow: none;
+            mix-blend-mode: difference;
         }
 
         .cursor.hover::before {
-            opacity: 0; /* Hide siri glow on hover so the glassmorphism shines */
+            opacity: 0.6; /* Show siri glow on hover */
         }
 
         .cursor.text {
@@ -879,7 +882,7 @@
             line-height: 1.6;
         }
 
-        .hero .subtitle .typewriter {
+        .hero .typewriter {
             border-right: 2px solid var(--accent);
             animation: blink 1s infinite;
         }
@@ -2146,12 +2149,16 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#home" class="logo">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25 20H75V35H60V80H40V35H25V20Z" class="logo-t-path"/>
-                <path d="M78 55C83.5228 55 88 59.4772 88 65C88 70.5228 83.5228 75 78 75C72.4772 75 68 70.5228 68 65C68 59.4772 72.4772 55 78 55Z" class="logo-dot-path" stroke-width="4"/>
-            </svg>
-        </a>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-left: -5px;">
+            <a href="#home" class="logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 20H75V35H60V80H40V35H25V20Z" class="logo-t-path"/>
+                </svg>
+            </a>
+            <button id="bgm-toggle" aria-label="Toggle Background Music">
+                <i class="fas fa-play"></i>
+            </button>
+        </div>
         <div style="display: flex; align-items: center; gap: 1.5rem;">
             <button id="theme-toggle" aria-label="Toggle Theme">
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2205,14 +2212,15 @@
                 </div>
                 <div class="hero-line">
                     <span class="word">CREATIVE</span> 
-                    <span class="word">DESIGNER</span>
+                    <span class="word" id="animated-designer">DESIGNER</span><span class="typewriter"></span>
                 </div>
             </h1>
             <p class="subtitle">
-                Bridging analytical thinking with creative expression<span class="typewriter"></span>
+               <br>
+		<br>
             </p>
             <a href="#work" class="cta-button">
-                <span>Explore My Universe</span>
+                <span>Explore My Creations</span>
             </a>
         </div>
     </section>
@@ -2224,25 +2232,27 @@
                 <div class="skill-item"><i class="fas fa-paint-brush"></i> Adobe Illustrator</div>
                 <div class="skill-item"><i class="fas fa-camera"></i> Adobe Photoshop</div>
                 <div class="skill-item"><i class="fas fa-flask"></i> Scientific Analysis</div>
-                <div class="skill-item"><i class="fas fa-lightbulb"></i> Creative Problem Solving</div>
+                <div class="skill-item"><i class="fas fa-lightbulb"></i> Problem Solving</div>
                 <div class="skill-item"><i class="fas fa-chalkboard-user"></i> Teaching & Mentoring</div>
                 <div class="skill-item"><i class="fas fa-running"></i> Sports & Athletics</div>
                 <div class="skill-item"><i class="fas fa-microchip"></i> Tech & AI Enthusiast</div>
+                <div class="skill-item"><i class="fas fa-feather-alt"></i> Poetry</div>
                 <!-- Duplicate for seamless loop -->
                 <div class="skill-item"><i class="fas fa-paint-brush"></i> Adobe Illustrator</div>
                 <div class="skill-item"><i class="fas fa-camera"></i> Adobe Photoshop</div>
                 <div class="skill-item"><i class="fas fa-flask"></i> Scientific Analysis</div>
-                <div class="skill-item"><i class="fas fa-lightbulb"></i> Creative Problem Solving</div>
+                <div class="skill-item"><i class="fas fa-lightbulb"></i> Problem Solving</div>
                 <div class="skill-item"><i class="fas fa-chalkboard-user"></i> Teaching & Mentoring</div>
                 <div class="skill-item"><i class="fas fa-running"></i> Sports & Athletics</div>
                 <div class="skill-item"><i class="fas fa-microchip"></i> Tech & AI Enthusiast</div>
+                <div class="skill-item"><i class="fas fa-feather-alt"></i> Poetry</div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section class="skills" id="skills">
-        <h2 class="section-title reveal">MY EXPERTISE</h2>
+        <h2 class="section-title reveal">EXPERT!SE</h2>
         <div class="skills-grid">
             <div class="skill-card reveal" style="--i: 0">
                 <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
@@ -2250,7 +2260,6 @@
                 <p class="skill-desc">Creating visually compelling designs with Adobe Creative Suite, focusing on brand identity and visual storytelling.</p>
                 <div class="skill-tags">
                     <span class="skill-tag">Brand Identity</span>
-                    <span class="skill-tag">Photoshop</span>
                 </div>
             </div>
             <div class="skill-card reveal" style="--i: 1">
@@ -2258,8 +2267,6 @@
                 <h3 class="skill-title">Scientific Analysis</h3>
                 <p class="skill-desc">Applying scientific methodology and analytical thinking to solve complex problems systematically.</p>
                 <div class="skill-tags">
-                    <span class="skill-tag">Research</span>
-                    <span class="skill-tag">Analysis</span>
                     <span class="skill-tag">Problem Solving</span>
                 </div>
             </div>
@@ -2268,9 +2275,7 @@
                 <h3 class="skill-title">Creative Solutions</h3>
                 <p class="skill-desc">Combining design sensibility with technical knowledge to develop innovative solutions.</p>
                 <div class="skill-tags">
-                    <span class="skill-tag">Innovation</span>
-                    <span class="skill-tag">Creativity</span>
-                    <span class="skill-tag">Strategy</span>
+                    <span class="skill-tag">Innovation Strategy</span>
                 </div>
             </div>
              <div class="skill-card reveal" style="--i: 3">
@@ -2279,14 +2284,12 @@
                 <p class="skill-desc">Constantly exploring new technologies, design methodologies, and scientific concepts to fuel growth.</p>
                  <div class="skill-tags">
                     <span class="skill-tag">Adaptability</span>
-                    <span class="skill-tag">Web Design</span>
-                    <span class="skill-tag">Curiosity</span>
                 </div>
             </div>
             <div class="skill-card reveal" style="--i: 4">
                 <div class="skill-icon"><i class="fas fa-chalkboard-user"></i></div>
                 <h3 class="skill-title">Teaching & Mentoring</h3>
-                <p class="skill-desc">Experienced in tutoring and mentoring students. Successfully taught English to Class 10, Science to Class 9, and general subjects to Classes 8 and 5.</p>
+                <p class="skill-desc">Experienced in tutoring and mentoring students. Successfully taught English to BBS students, Science & mathematics to Class 9-10, and general subjects to Classes 8 and 5.</p>
                  <div class="skill-tags">
                     <span class="skill-tag">Mentoring</span>
                     <span class="skill-tag">English</span>
@@ -2318,7 +2321,7 @@
     
     <!-- Projects Section -->
     <section class="projects" id="work" style="overflow: visible;">
-        <h2 class="section-title reveal">CREATIVE WORKS</h2>
+        <h2 class="section-title reveal">WORKS</h2>
         <div class="project-stack">
             <div class="project-card reveal-right">
                 <div class="project-image-placeholder">Design Project Preview Coming Soon</div>
@@ -2358,7 +2361,7 @@
 
     <!-- Journey Timeline Section -->
     <section class="journey" id="journey">
-        <h2 class="section-title reveal">MY JOURNEY</h2>
+        <h2 class="section-title reveal">JOURNEY</h2>
         <div class="timeline">
             <div class="timeline-item reveal-right">
                 <div class="timeline-content">
@@ -2427,8 +2430,8 @@
         <h2 class="section-title reveal">LET'S CONNECT</h2>
         <p class="reveal">Have a project, an idea, or just want to talk? I'm all ears.</p>
         <div class="contact-inline reveal" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <span style="font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gray-light);">Say hi to:</span>
-            <a href="mailto:taheruddintamim20@gmail.com" class="contact-link">taheruddintamim20@gmail.com</a>
+            <span style="font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gray-light);">say h!</span>
+            <a href="mailto:taheruddintamim20@gmail.com" class="contact-link">Dropping @n email</a>
         </div>
     </section>
 
@@ -2576,7 +2579,7 @@
             }
 
             // --- TYPEWRITER EFFECT (ROBUST VERSION) ---
-            const subtitleElement = document.querySelector('.subtitle');
+            const subtitleElement = document.getElementById('animated-designer');
             if (subtitleElement) {
                 // Find the text node that contains the full sentence
                 let textNode = null;
@@ -2609,7 +2612,26 @@
             if(currentYearEl) {
                 currentYearEl.textContent = new Date().getFullYear();
             }
+
+            // --- BGM Logic ---
+            const bgmToggle = document.getElementById('bgm-toggle');
+            const bgmAudio = document.getElementById('bgm-audio');
+            const bgmIcon = bgmToggle ? bgmToggle.querySelector('i') : null;
+
+            if (bgmToggle && bgmAudio && bgmIcon) {
+                bgmToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (bgmAudio.paused) {
+                        bgmAudio.play();
+                        bgmIcon.className = 'fas fa-pause';
+                    } else {
+                        bgmAudio.pause();
+                        bgmIcon.className = 'fas fa-play';
+                    }
+                });
+            }
         });
     </script>
+    <audio id="bgm-audio" src="bgm.mp3" loop preload="auto"></audio>
 </body>
 </html>
